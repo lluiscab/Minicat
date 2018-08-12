@@ -22,8 +22,8 @@ pipeline {
 
 def createEnvironment(name) {
 
-  sh "docker stop minicat-${name}"
-  sh "docker rm minicat-${name}"
+  sh "docker stop minicat-${name}  || :"
+  sh "docker rm minicat-${name} || :"
 
   sh "docker run --name minicat-${name} minicat:latest"
 
